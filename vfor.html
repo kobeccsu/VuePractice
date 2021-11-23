@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="user in users" :key="user.name" v-if="user.gender == '女'">
+                {{user.name}} {{user.gender}} {{user.age}}
+                <span v-for="(v, k, i) in user">
+                     {{k}} = {{v}} index: {{i}}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                users:[
+                    {name: '古力娜扎', gender: '女', age: 18},
+                    {name: '迪丽热巴', gender: '女', age: 20},
+                    {name: '阿希姆', gender: '男', age: 33},
+                    {name: '古力娜扎', gender: '女', age: 18},
+                ]
+            },
+            methods:{
+
+            },
+        })  
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="app">
+            {{msg}}
+            {{msg + "lady"}}
+            {{sayHello()}}
+            <span v-html="msg"></span>
+            <br>
+            <span v-text="msg"></span>
+
+            <a v-bind:href="link">redirect</a>
+            <span v-bind:class="{one: useOne, two: useTwo}">Woof</span>
+            <span v-bind:style="{color: color, fontSize: size}">Big crow</span>
+
+            <br/>
+            <input type="checkbox" v-model="lang" value="Java">Java
+            <input type="checkbox" v-model="lang" value="C#">C#
+            <input type="checkbox" v-model="lang" value="PHP">PHP
+
+            <h1>selected {{lang.join(",")}}</h1>
+        </div>
+
+        <script src="./node_modules/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    msg: "<h1>Hello</h1>",
+                    link: "https://www.google.com",
+                    useOne: true,
+                    useTwo: true,
+                    color: "blue",
+                    size: "30px",
+                    lang: [],
+                },
+                methods: {
+                    sayHello(){
+                        return "World";
+                    }
+                },    
+            })
+        </script>
+    </div>
+</body>
+</html>

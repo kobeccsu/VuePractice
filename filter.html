@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in users" :key="index">
+               {{item.name}} {{item.gender | gGen}}
+            </li>
+        </ul>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.filter("gGen", (val)=>{
+            if(val=='1') return "猛男";
+                    return '烈女'
+        })
+
+        new Vue({
+            el:'#app',
+            data:{
+                users:[
+                    {name: '古力娜扎', gender: 0, age: 18},
+                    {name: '迪丽热巴', gender: 0, age: 20},
+                    {name: '阿希姆', gender: 1, age: 33},
+                    {name: '古力娜扎', gender: 0, age: 18},
+                ]
+            },
+            filters:{
+                genderFilter(val){
+                    if(val=='1') return "男";
+                    return '女'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

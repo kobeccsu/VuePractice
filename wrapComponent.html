@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        // Vue.component('counter', {
+        //     template: `<button v-on:click="number++">Clicked {{number}}</button>`,
+        //     data(){
+        //         return {
+        //             number:1
+        //         }
+                
+        //     }
+        // });
+
+        const buttonComponent = {
+            template: `<button v-on:click="number++">Clicked {{number}}</button>`,
+            data(){
+                return {
+                    number:1
+                }
+                
+            }
+        };
+
+        new Vue({
+            el:"#app",
+            components:{
+                'counter': buttonComponent
+            }
+        })
+       
+    </script>
+
+
+    
+</body>
+</html>

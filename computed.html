@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    book1 price: {{book1Price}} , book1 number <input type="text" v-model="book1Num">
+    book2 price: {{book2Price}} , book2 number <input type="text" v-model="book2Num">
+    <div v-if="over" style="color: red;"><span>超出限制</span></div>
+    <br/>
+    total price {{cal}}
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data(){
+                return {
+                    book1Price: 11,
+                    book1Num:1,
+                    book2Price: 22,
+                    book2Num:1,
+                    over: false,
+                }
+            },
+            computed:{
+                cal(){
+                    return this.book1Price * this.book1Num + this.book2Price * this.book2Num;
+                }
+            },
+            watch:{
+                book1Num(nVal, oldVal){
+                    if(nVal >= 3){
+                        this.book1Num = 3
+                        this.over = true
+                    }else{
+                        this.over = false
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
